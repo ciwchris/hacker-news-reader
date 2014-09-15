@@ -1,0 +1,19 @@
+<ion-view title="Front Page" ng-controller="NewsCtrl" ng-init="init()">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="card">
+        <div class="item item-text-wrap card-item" ng-repeat="n in news">
+            <div class="item-icon-right">
+                <div ng-click="openStory(n.url)">{{ n.title }}</div>
+                <i class="icon" ng-class="{'ion-plus-round':!n.saved, 'ion-checkmark-round':n.saved}" ng-click="saveStory(n)"></i>
+            </div>
+            <div class="stats">
+                <div class="stat-points">{{ n.points }} <i class="icon ion-thumbsup"></i></div>
+                <div>{{ n.commentCount }} <i class="icon ion-ios7-chatbubble-outline"></i></div>
+            <div>
+        </div>
+    </div>
+  </ion-content>
+</ion-view>

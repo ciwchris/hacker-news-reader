@@ -1,0 +1,13 @@
+<ion-view title="Bookmarks"ng-controller="BookmarksCtrl" ng-init="init()">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+    <ion-content>
+    <div class="card" ng-show="bookmarks.length > 0">
+        <div class="item item-text-wrap card-item" ng-repeat="b in bookmarks">
+            <div class="item-icon-right">
+                <div ng-click="openStory(b.url)">{{ b.title }}</div>
+                <i class="icon" ng-class="{'ion-plus-round':!b.saved, 'ion-checkmark-round':b.saved}" ng-click="saveStory(b)"></i>
+            </div>
+  </ion-content>
+</ion-view>
