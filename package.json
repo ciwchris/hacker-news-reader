@@ -1,7 +1,7 @@
 {
-  "name": "hacker-news-reader",
+  "name": "hn-reader",
   "version": "1.0.0",
-  "description": "hacker-news-reader: An Ionic project",
+  "description": "HN Reader: An Ionic project",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^0.7.1",

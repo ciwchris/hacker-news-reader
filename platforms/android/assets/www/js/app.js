@@ -4,9 +4,9 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('hn', ['ionic', 'ngStorage', 'hn.controllers'])
+angular.module('hn', ['ionic', 'angular-data.DSCacheFactory', 'hn.controllers'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, DSCacheFactory) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -18,6 +18,12 @@ angular.module('hn', ['ionic', 'ngStorage', 'hn.controllers'])
       StatusBar.styleDefault();
     }
   });
+
+  DSCacheFactory('news', { storageMode: 'localStorage', maxAge: 1000 * 60 * 10, deleteOnExpire: 'aggressive' });
+  var bookmarks = DSCacheFactory('bookmarks', { storageMode: 'localStorage' });
+  if (!angular.isArray(bookmarks.get('bookmarks'))) {
+    bookmarks.put('bookmarks', []);
+  }
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -49,12 +55,5 @@ angular.module('hn', ['ionic', 'ngStorage', 'hn.controllers'])
     });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/news');
-})
-.run(function($localStorage) {
-    delete $localStorage.bookmarks;
-    if (!angular.isArray($localStorage.bookmarks)) {
-        $localStorage.bookmarks = [];
-    }
-
 });
 

@@ -1,4 +1,4 @@
-angular.module('hn.controllers', ['ngStorage'])
+angular.module('hn.controllers', ['angular-data.DSCacheFactory'])
 
 .controller('AppCtrl', function() {
 })
@@ -20,7 +20,7 @@ angular.module('hn.controllers', ['ngStorage'])
         // $scope.news = newsService.getFakeNews();
         newsService.getNews().then(
             function(items) {
-            $scope.news = items;
+                $scope.news = items;
         });
     };
 
@@ -33,18 +33,20 @@ angular.module('hn.controllers', ['ngStorage'])
     };
 })
 
-.factory('bookmarkService', function($localStorage) {
+.factory('bookmarkService', function(DSCacheFactory) {
     function list() {
-        return $localStorage.bookmarks;
+        return DSCacheFactory.get('bookmarks').get('bookmarks');
     }
 
     function toggle(story) {
         story.saved = !story.saved;
+        var bookmarks = DSCacheFactory.get('bookmarks').get('bookmarks');
         if (story.saved) {
-            $localStorage.bookmarks.push(story);
+            bookmarks.push(story);
         } else {
-            $localStorage.bookmarks = _.reject($localStorage.bookmarks, {id: story.id});
+            bookmarks = _.reject(bookmarks, {id: story.id});
         }
+        DSCacheFactory.get('bookmarks').put('bookmarks', bookmarks);
     }
 
     return {
@@ -52,19 +54,35 @@ angular.module('hn.controllers', ['ngStorage'])
         toggle: toggle
     };
 })
-.factory('newsService', function($q, $http) {
+.factory('newsService', function($q, $http, $ionicLoading, DSCacheFactory) {
     function getFakeNews() {
-        return fakeNews.items;
+        var news = DSCacheFactory.get('news').get('news');
+        if (news) {
+            return news;
+        } else {
+            DSCacheFactory.get('news').put('news', fakeNews.items);
+            return fakeNews.items;
+        }
     }
+
     function getNews() {
         var deferred = $q.defer();
 
-        $http({method: 'GET', url: 'http://api.ihackernews.com/page'})
-        .success(function(data, status, headers, config) {
-            deferred.resolve(data.items);
-        }).error(function(data, status, headers, config) {
-            deferred.resolve([{'title': data},{'title': status}]);
-        });
+        var news = DSCacheFactory.get('news').get('news');
+        if (news) {
+            deferred.resolve(news);
+        } else {
+            $ionicLoading.show({template: 'Loading...'});
+            $http({method: 'GET', url: 'http://api.ihackernews.com/page'})
+            .success(function(data, status, headers, config) {
+                DSCacheFactory.get('news').put('news', data.items);
+                deferred.resolve(data.items);
+                $ionicLoading.hide();
+            }).error(function(data, status, headers, config) {
+                deferred.resolve([{'title': data},{'title': status}]);
+                $ionicLoading.hide();
+            });
+        }
         return deferred.promise;
     }
 

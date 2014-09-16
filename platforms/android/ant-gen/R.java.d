@@ -1,4 +1,4 @@
-/home/ciwchris/projects/ionic/hacker-news-reader/platforms/android/ant-gen/com/ionicframework/hackernewsreader681647/R.java \
+/home/ciwchris/projects/ionic/hacker-news-reader/platforms/android/ant-gen/com/ionicframework/hackernewsreader284694/R.java \
  : /home/ciwchris/projects/ionic/hacker-news-reader/platforms/android/res/drawable-port-mdpi/screen.png \
 /home/ciwchris/projects/ionic/hacker-news-reader/platforms/android/res/drawable-port-ldpi/screen.png \
 /home/ciwchris/projects/ionic/hacker-news-reader/platforms/android/res/drawable-mdpi/ic_action_next_item.png \
