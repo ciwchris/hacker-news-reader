@@ -1,19 +1,26 @@
 <ion-view title="Front Page" ng-controller="NewsCtrl" ng-init="init()">
   <ion-nav-buttons side="left">
-    <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
   <ion-content>
-    <div class="card">
+    <div class="card" ng-show="news">
         <div class="item item-text-wrap card-item" ng-repeat="n in news">
             <div class="item-icon-right">
-                <div ng-click="openStory(n.url)">{{ n.title }}</div>
+                <div on-hold="copyUrl(n.url)"  ng-click="openStory(n.url)">{{ n.title }}</div>
                 <i class="icon" ng-class="{'ion-plus-round':!n.saved, 'ion-checkmark-round':n.saved}" ng-click="saveStory(n)"></i>
             </div>
-            <div class="stats">
-                <div class="stat-points">{{ n.points }} <i class="icon ion-thumbsup"></i></div>
-                <div>{{ n.commentCount }} <i class="icon ion-ios7-chatbubble-outline"></i></div>
-            <div>
+            <div class="row stats">
+                <div class="col">
+                    <div ng-if="n.kids" ng-click="showComments(n.id)">{{ n.kids.length }} <i class="icon ion-ios7-chatbubble-outline"></i></div>
+                </div>
+                <div class="col">
+                    <div class="stat-points">{{ n.score }} <i class="icon ion-thumbsup"></i></div>
+                </div>
+            </div>
         </div>
+    </div>
+    <div class="footer" ng-show="news">
+        <button ng-click="loadMore(news[news.length -1].id)" class="button icon-right ion-chevron-right">Load more</button>
     </div>
   </ion-content>
 </ion-view>

@@ -1,277 +1,52 @@
-var fakeNews = {
-  "nextId": "2",
-  "items": [
-    {
-      "title": "Should We All Take a Bit of Lithium?",
-      "url": "http://www.nytimes.com/2014/09/14/opinion/sunday/should-we-all-take-a-bit-of-lithium.html",
-      "id": 8314188,
-      "commentCount": 24,
-      "points": 59,
-      "postedAgo": "3 hours ago",
-      "postedBy": "peteretep"
-    },
-    {
-      "title": "Sandwich Video: The company that makes nearly all startup videos",
-      "url": "http://sandwichvideo.com",
-      "id": 8313720,
-      "commentCount": 34,
-      "points": 131,
-      "postedAgo": "6 hours ago",
-      "postedBy": "coldtea"
-    },
-    {
-      "title": "A JavaScript clone of Nu Pogodi, an old Soviet hand-held game",
-      "url": "http://nerdlab.pl/uploads/projects/nu-pogodi/index.html",
-      "id": 8314272,
-      "commentCount": 8,
-      "points": 26,
-      "postedAgo": "2 hours ago",
-      "postedBy": "Nowaker"
-    },
-    {
-      "title": "Navdy",
-      "url": "https://www.navdy.com/",
-      "id": 8312554,
-      "commentCount": 150,
-      "points": 270,
-      "postedAgo": "12 hours ago",
-      "postedBy": "esolyt"
-    },
-    {
-      "title": "Wifi: “beamforming” only begins to describe it",
-      "url": "http://apenwarr.ca/log/?m=201408#01",
-      "id": 8313470,
-      "commentCount": 24,
-      "points": 89,
-      "postedAgo": "7 hours ago",
-      "postedBy": "soundsop"
-    },
-    {
-      "title": "Radical Librarianship: Ninja librarians are ensuring patrons' electronic privacy",
-      "url": "http://boingboing.net/2014/09/13/radical-librarianship-how-nin.html",
-      "id": 8314011,
-      "commentCount": 0,
-      "points": 18,
-      "postedAgo": "4 hours ago",
-      "postedBy": "prilasera"
-    },
-    {
-      "title": "Product Hunt Raises $6M from A16Z",
-      "url": "http://techcrunch.com/2014/09/13/producthunt-raises-6-million-from-a16z/",
-      "id": 8313985,
-      "commentCount": 6,
-      "points": 37,
-      "postedAgo": "4 hours ago",
-      "postedBy": "moritzplassnig"
-    },
-    {
-      "title": "Erdős: Mathematical problems",
-      "url": "http://erdos.sdslabs.co/",
-      "id": 8313702,
-      "commentCount": 1,
-      "points": 17,
-      "postedAgo": "6 hours ago",
-      "postedBy": "abhshkdz"
-    },
-    {
-      "title": "Hell in the Hot Zone",
-      "url": "http://www.vanityfair.com/politics/2014/10/ebola-virus-epidemic-containment",
-      "id": 8313784,
-      "commentCount": 0,
-      "points": 11,
-      "postedAgo": "5 hours ago",
-      "postedBy": "fossuser"
-    },
-    {
-      "title": "The SELinux coloring book [pdf]",
-      "url": "http://people.redhat.com/duffy/selinux/selinux-coloring-book_A4-Stapled.pdf",
-      "id": 8314166,
-      "commentCount": 2,
-      "points": 23,
-      "postedAgo": "3 hours ago",
-      "postedBy": "adamnemecek"
-    },
-    {
-      "title": "Gravit – Open-source design tool",
-      "url": "http://hub.gravit.io/browser/",
-      "id": 8311827,
-      "commentCount": 64,
-      "points": 371,
-      "postedAgo": "20 hours ago",
-      "postedBy": "jarek-foksa"
-    },
-    {
-      "title": "Hippie Daredevils Who Invented Mountain Biking",
-      "url": "http://www.collectorsweekly.com/articles/the-hippie-daredevils-who-were-just-crazy-enough-to-invent-mountain-biking/",
-      "id": 8313137,
-      "commentCount": 43,
-      "points": 73,
-      "postedAgo": "9 hours ago",
-      "postedBy": "BobbyVsTheDevil"
-    },
-    {
-      "title": "Trying to Help in Haiti",
-      "url": "http://www.outsideonline.com/adventure-travel/caribbean/haiti/Does-Foreign-Aid-to-Haiti-Do-Any-Good.html",
-      "id": 8313499,
-      "commentCount": 12,
-      "points": 43,
-      "postedAgo": "7 hours ago",
-      "postedBy": "Mz"
-    },
-    {
-      "title": "Show HN: Pup – A command-line HTML parser",
-      "url": "https://github.com/EricChiang/pup",
-      "id": 8312249,
-      "commentCount": 24,
-      "points": 74,
-      "postedAgo": "14 hours ago",
-      "postedBy": "ericchiang"
-    },
-    {
-      "title": "Is it possible to control cancer without killing it?",
-      "url": "http://www.newyorker.com/magazine/2014/09/15/transformation-3?utm_source=tny&amp;utm_campaign=generalsocial&amp;utm_medium=twitter&amp;mbid=social_twitter",
-      "id": 8314107,
-      "commentCount": 2,
-      "points": 15,
-      "postedAgo": "3 hours ago",
-      "postedBy": "Bud"
-    },
-    {
-      "title": "How Jack Ma Runs Alibaba",
-      "url": "http://www.livemint.com/Companies/X6KNzaflW8mYjDOW7MFt1L/The-Jack-Ma-way.html",
-      "id": 8313948,
-      "commentCount": 1,
-      "points": 8,
-      "postedAgo": "4 hours ago",
-      "postedBy": "techaddict009"
-    },
-    {
-      "title": "The Future According to Stanisław Lem",
-      "url": "http://www.theparisreview.org/blog/2014/09/12/the-future-according-to-stanislaw-lem/",
-      "id": 8312151,
-      "commentCount": 94,
-      "points": 171,
-      "postedAgo": "15 hours ago",
-      "postedBy": "dnetesn"
-    },
-    {
-      "title": "Show HN: TinyCert – Certificates as a service",
-      "url": "https://www.tinycert.org/",
-      "id": 8313941,
-      "commentCount": 6,
-      "points": 8,
-      "postedAgo": "4 hours ago",
-      "postedBy": "shdon"
-    },
-    {
-      "title": "Trying to Hit the Brake on Texting While Driving",
-      "url": "http://www.nytimes.com/2014/09/14/business/trying-to-hit-the-brake-on-texting-while-driving.html",
-      "id": 8313324,
-      "commentCount": 32,
-      "points": 32,
-      "postedAgo": "8 hours ago",
-      "postedBy": "srikar"
-    },
-    {
-      "title": "IoT Radio – Batteryless very cheap radios",
-      "url": "http://web.stanford.edu/~arbabian/Home/IoT_Radio.html",
-      "id": 8313543,
-      "commentCount": 7,
-      "points": 37,
-      "postedAgo": "6 hours ago",
-      "postedBy": "spenrose"
-    },
-    {
-      "title": "The Potemkinism of Privacy Pragmatism",
-      "url": "http://www.slate.com/articles/technology/future_tense/2014/09/data_use_regulation_the_libertarian_push_behind_a_new_take_on_privacy.single.html",
-      "id": 8313853,
-      "commentCount": 1,
-      "points": 7,
-      "postedAgo": "5 hours ago",
-      "postedBy": "willvarfar"
-    },
-    {
-      "title": "The Typewriter Artist (2004) [video]",
-      "url": "https://www.youtube.com/watch?v=svzPm8lT36o",
-      "id": 8314037,
-      "commentCount": 0,
-      "points": 7,
-      "postedAgo": "4 hours ago",
-      "postedBy": "bane"
-    },
-    {
-      "title": "An Astrobiologist Asks a Sci-fi Novelist How to Survive the Anthropocene",
-      "url": "http://nautil.us/issue/15/turbulence/an-astrobiologist-asks-a-sci_fi-novelist-how-to-survive-the-anthropocene",
-      "id": 8312162,
-      "commentCount": 37,
-      "points": 66,
-      "postedAgo": "15 hours ago",
-      "postedBy": "dnetesn"
-    },
-    {
-      "title": "Airware Partners with NASA to Develop a UAS Traffic Management System",
-      "url": "http://www.kpcb.com/news/airware-partners-with-nasa-to-develop-a-uas-traffic-management-system",
-      "id": 8314054,
-      "commentCount": 0,
-      "points": 6,
-      "postedAgo": "4 hours ago",
-      "postedBy": "anjneymidha"
-    },
-    {
-      "title": "We Are Entering the Age of Alzheimer's",
-      "url": "http://www.newrepublic.com/article/119265/alzheimers-disease-statistics-show-illness-will-define-our-times/?utm_source=pocket&amp;utm_medium=email&amp;utm_campaign=pockethits",
-      "id": 8313116,
-      "commentCount": 90,
-      "points": 96,
-      "postedAgo": "9 hours ago",
-      "postedBy": "prostoalex"
-    },
-    {
-      "title": "The Impossible Star",
-      "url": "http://astrobites.org/2014/09/12/the-impossible-star/",
-      "id": 8312295,
-      "commentCount": 7,
-      "points": 45,
-      "postedAgo": "14 hours ago",
-      "postedBy": "qwerta"
-    },
-    {
-      "title": "A tiny group of people can see ‘invisible’ colours that no-one else can perceive",
-      "url": "http://www.bbc.com/future/story/20140905-the-women-with-super-human-vision",
-      "id": 8311757,
-      "commentCount": 71,
-      "points": 151,
-      "postedAgo": "21 hours ago",
-      "postedBy": "austinz"
-    },
-    {
-      "title": "Learning How to Exert Self-Control",
-      "url": "http://www.nytimes.com/2014/09/14/opinion/sunday/learning-self-control.html?partner=rss&amp;emc=rss&amp;smid=fb-nytimes&amp;bicmst=1409232722000&amp;bicmet=1419773522000&amp;smtyp=aut&amp;bicmp=AD&amp;bicmlukp=WT.mc_id&amp;_r=0",
-      "id": 8311691,
-      "commentCount": 24,
-      "points": 178,
-      "postedAgo": "22 hours ago",
-      "postedBy": "prostoalex"
-    },
-    {
-      "title": "Dutch Girl Fakes a Trip to South East Asia",
-      "url": "http://www.gapyear.com/news/230749/dutch-girl-fakes-a-trip-to-se-asia",
-      "id": 8312959,
-      "commentCount": 79,
-      "points": 212,
-      "postedAgo": "10 hours ago",
-      "postedBy": "theoutlander"
-    },
-    {
-      "title": "Melting aluminum",
-      "url": "http://ericlippert.com/2014/09/12/melting-aluminum/",
-      "id": 8311796,
-      "commentCount": 33,
-      "points": 141,
-      "postedAgo": "20 hours ago",
-      "postedBy": "eurg"
-    }
-  ],
-  "version": "1.0",
-  "cachedOnUTC": "/Date(1410666915560)/"
-}
+var fakeNews = [
+{
+  "by" : "dhouston",
+  "id" : 8863,
+  "kids" : [ 8952, 9224, 8917, 8884, 8887, 8943, 8869, 8958, 9005, 9671, 8940, 9067, 8908, 9055, 8865, 8881, 8872, 8873, 8955, 10403, 8903, 8928, 9125, 8998, 8901, 8902, 8907, 8894, 8878, 8870, 8980, 8934, 8876 ],
+  "score" : 111,
+  "time" : 1175714200,
+  "title" : "My YC app: Dropbox - Throw away your USB drive",
+  "type" : "story",
+  "url" : "http://www.getdropbox.com/u/2/screencast.html"
+},
+{
+  "by" : "dhouston",
+  "id" : 8863,
+  "kids" : [ 8952, 9224, 8917, 8884, 8887, 8943, 8869, 8958, 9005, 9671, 8940, 9067, 8908, 9055, 8865, 8881, 8872, 8873, 8955, 10403, 8903, 8928, 9125, 8998, 8901, 8902, 8907, 8894, 8878, 8870, 8980, 8934, 8876 ],
+  "score" : 111,
+  "time" : 1175714200,
+  "title" : "My YC app: Dropbox - Throw away your USB drive",
+  "type" : "story",
+  "url" : "http://www.getdropbox.com/u/2/screencast.html"
+},
+{
+  "by" : "dhouston",
+  "id" : 8863,
+  "kids" : [ 8952, 9224, 8917, 8884, 8887, 8943, 8869, 8958, 9005, 9671, 8940, 9067, 8908, 9055, 8865, 8881, 8872, 8873, 8955, 10403, 8903, 8928, 9125, 8998, 8901, 8902, 8907, 8894, 8878, 8870, 8980, 8934, 8876 ],
+  "score" : 111,
+  "time" : 1175714200,
+  "title" : "My YC app: Dropbox - Throw away your USB drive",
+  "type" : "story",
+  "url" : "http://www.getdropbox.com/u/2/screencast.html"
+},
+{
+  "by" : "dhouston",
+  "id" : 8863,
+  "kids" : [ 8952, 9224, 8917, 8884, 8887, 8943, 8869, 8958, 9005, 9671, 8940, 9067, 8908, 9055, 8865, 8881, 8872, 8873, 8955, 10403, 8903, 8928, 9125, 8998, 8901, 8902, 8907, 8894, 8878, 8870, 8980, 8934, 8876 ],
+  "score" : 111,
+  "time" : 1175714200,
+  "title" : "My YC app: Dropbox - Throw away your USB drive",
+  "type" : "story",
+  "url" : "http://www.getdropbox.com/u/2/screencast.html"
+},
+{
+  "by" : "dhouston",
+  "id" : 8863,
+  "kids" : [ 8952, 9224, 8917, 8884, 8887, 8943, 8869, 8958, 9005, 9671, 8940, 9067, 8908, 9055, 8865, 8881, 8872, 8873, 8955, 10403, 8903, 8928, 9125, 8998, 8901, 8902, 8907, 8894, 8878, 8870, 8980, 8934, 8876 ],
+  "score" : 111,
+  "time" : 1175714200,
+  "title" : "My YC app: Dropbox - Throw away your USB drive",
+  "type" : "story",
+  "url" : "http://www.getdropbox.com/u/2/screencast.html"
+},
+]

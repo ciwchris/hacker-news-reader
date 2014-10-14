@@ -1,0 +1,19 @@
+<ion-view title="Comments" ng-controller="CommentsCtrl" ng-init="init()">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content>
+  <!-- extract this out and then ng-include if children -->
+  <!-- show root comments as cards -->
+  <!-- when touched it display the next level cards with back button -->
+  <!-- and so on -->
+    <div class="card">
+        <div class="item item-text-wrap card-item" ng-repeat="c in comments">
+            <div ng-click="showComments(c.id)" ng-bind-html="c.text"></div>
+            <div ng-if="c.kids.length > 0" class="stats">
+                <div ng-click="showComments(c.id)">{{ c.kids.length }} <i class="icon ion-ios7-chatbubble-outline"></i></div>
+            </div>
+        </div>
+    </div>
+  </ion-content>
+</ion-view>

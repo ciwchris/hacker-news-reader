@@ -1,4 +1,5 @@
 /home/ciwchris/projects/ionic/hacker-news-reader/platforms/android/ant-build/classes.dex : \
+/home/ciwchris/projects/ionic/hacker-news-reader/platforms/android/ant-build/classes/com/verso/cordova/clipboard/Clipboard.class \
 /home/ciwchris/projects/ionic/hacker-news-reader/platforms/android/ant-build/classes/com/ionic/keyboard/IonicKeyboard$2.class \
 /home/ciwchris/projects/ionic/hacker-news-reader/platforms/android/ant-build/classes/com/ionic/keyboard/IonicKeyboard$1.class \
 /home/ciwchris/projects/ionic/hacker-news-reader/platforms/android/ant-build/classes/com/ionic/keyboard/IonicKeyboard.class \
@@ -25,4 +26,6 @@
 /home/ciwchris/projects/ionic/hacker-news-reader/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$5$3.class \
 /home/ciwchris/projects/ionic/hacker-news-reader/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$4.class \
 /home/ciwchris/projects/ionic/hacker-news-reader/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$2.class \
+/home/ciwchris/projects/ionic/hacker-news-reader/platforms/android/ant-build/classes/nl/xservices/plugins/Toast.class \
+/home/ciwchris/projects/ionic/hacker-news-reader/platforms/android/ant-build/classes/nl/xservices/plugins/Toast$1.class \
 /home/ciwchris/projects/ionic/hacker-news-reader/platforms/android/ant-build/dexedLibs/classes-8dded0abf82c79426762999db121d85a.jar \

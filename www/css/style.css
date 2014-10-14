@@ -1,2 +1,3 @@
-.stats { margin: 10pt 10pt 0 10pt; }
-.stat-points { float:right; margin-right: 11pt;} //ionic icon position is 11pt
+.stats { padding: 10pt 10pt 0; }
+.stat-points { float:right; margin-right: 15pt;} /*ionic icon position is 11pt */
+.footer { text-align: center; }

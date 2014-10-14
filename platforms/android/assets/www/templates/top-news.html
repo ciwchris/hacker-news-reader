@@ -1,0 +1,23 @@
+<ion-view title="Top 100 Stories" ng-controller="TopNewsCtrl" ng-init="init()">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="card" ng-show="news">
+        <div class="item item-text-wrap card-item" ng-repeat="n in news">
+            <div class="item-icon-right">
+                <div on-hold="copyUrl(n.url)" ng-click="openStory(n.url)">{{ n.title }}</div>
+                <i class="icon" ng-class="{'ion-plus-round':!n.saved, 'ion-checkmark-round':n.saved}" ng-click="saveStory(n)"></i>
+            </div>
+            <div class="row stats">
+                <div class="col">
+                    <div ng-if="n.kids" ng-click="showComments(n.id)">{{ n.kids.length }} <i class="icon ion-ios7-chatbubble-outline"></i></div>
+                </div>
+                <div class="col">
+                    <div class="stat-points">{{ n.score }} <i class="icon ion-thumbsup"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </ion-content>
+</ion-view>
